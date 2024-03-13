@@ -1,0 +1,21 @@
+.flex-container {
+  /* More about properties of flex container and flex item check out this link https://flexbox.malven.co/ */
+  display: flex;
+}
+.controllers {
+  flex: 1;
+}
+.grid-container {
+  flex: 4;
+}
+.grid-container {
+  background-color: #fff;
+  display: grid;
+  grid-gap: 2px;
+  /* grid-template-columns: 1fr 1fr; */
+}
+.grid-item {
+  background-color: #ccc;
+  text-align: center;
+  height: 1.5em;
+}

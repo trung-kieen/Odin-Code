@@ -1,0 +1,2 @@
+-   The common naming patterns include {filename}.test.js and {filename}.spec.js. I used the first, index.test.js
+-   Method and property private must start with `_` like `_binding()`

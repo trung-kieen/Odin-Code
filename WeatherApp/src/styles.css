@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root{
+  --week-border: 10px;
+  --secondary-text:#757575;
+  --nav-size:10%;
+  --footer-size:1.5em;
+}
+/* Additional styles for your project go here */
+body {
+  font-family: 'Inter', sans-serif; /* Use Inter font for the body text */
+}
+
+* {
+  font-family: Inter;
+
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  "FILL" 0,
+  "wght" 400,
+  "GRAD" 0,
+  "opsz" 24;
+}
+
+main, body{
+  padding:0;
+  margin:0;
+}
+main{
+  display: flex;
+  flex-direction: column;
+  height:100vh;
+  width: 100vw;
+}
+#nav {
+  min-height:3rem;
+  background: #FFF;
+  flex-basis: var(--nav-size);
+  justify-content:center;
+}
+
+
+#week-weather,  #today-weather>#details,#nav , .flex-row-center{
+  display:flex;
+  align-items:center;
+  flex-direction: row;
+
+}
+
+#week-weather>*, #today-weather, #weather-board , .flex-column-center{
+
+  display:flex;
+  align-items:center;
+  flex-direction: column;
+}
+
+/* input{ */
+/*   font-size:1.1em; */
+/*   padding:10px 10px 10px 5px; */
+/*   display:inline-block; */
+/*   border:none; */
+/*   border-bottom:solid 1px var(--secondary-text); */
+/* } */
+/* input:focus     { outline:none; } */
+
+
+#content {
+  background-color: #f2f5f7;
+  flex-basis: calc(100% - var(--nav-size) - var(--footer-size));
+  display:flex;
+  flex-direction: row;
+}
+#footer{
+  min-height:var(--footer-size);
+  background-color: #f2f5f7;
+  color:var(--secondary-text);
+  height:fit-content;
+  text-align:center;
+}
+
+
+
+#weather-board{
+  flex-grow:4;
+  justify-content: space-evenly;
+}
+
+#today-weather>.weather-icon {
+}
+
+#today-weather>#details{
+  justify-content:space-between;
+
+}
+#today-weather>#details>*{
+  margin:3em;
+}
+#today-weather>#details>.temperature{
+  font-size:2em;
+  font-weight:bold;
+}
+#week-weather {
+  background:#fff;
+  justify-content:space-between;
+  min-width:calc( 100% - 30vw );
+  padding:10px;
+  border-radius:var(--week-border);
+}
+#week-weather>:first-child{
+  border-top-left-radius:var(--week-border);
+  border-bottom-left-radius:var(--week-border);
+}
+#week-weather>:last-child{
+  border-top-right-radius:var(--week-border);
+  border-bottom-right-radius:var(--week-border);
+}
+
+#week-weather>*{
+  justify-content:stretch;
+  padding:1em;
+  margin:5px 0 5px 0 ;
+}
+#week-weather>.active-day  {
+  background:#f3f4f6;
+}
+
+.day-container>.weather-icon{
+  width:100%;
+  max-width:60px;
+}
+
+#setting-panel{
+  position:absolute;
+  top:calc(var(--nav-size) + 10px);
+  right:10px;
+}

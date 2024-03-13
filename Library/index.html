@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>The library</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+    <script src="script.js" defer></script>
+    <style type="text/css" media="screen">
+      * {
+        font-family: Inter;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The Library</h1>
+    <div id="analyze">
+      <p><b>Total book: </b><span id="total-book">0</span></p>
+      <p><b>Total readed: </b><span id="total-readed">0</span></p>
+    </div>
+    <button type="button" id="addBookBtn">+Add book</button>
+    <!-- <button id="toggleButton">Open Form</button> -->
+
+    <dialog id="dialog" class="dialog">
+      <h2>Dialog Form</h2>
+      <form id="form" class="form-grid">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required />
+        <label for="url-cover">Url image cover:</label>
+        <input
+          type="text"
+          id="url-cover"
+          name="url-cover"
+          placeholder="Url to cover image"
+        />
+        <p>
+          <label for="readed">Read yet?</label>
+          <input type="checkbox" id="readed" name="readed" checked />
+        </p>
+        <p class="error-messages"></p>
+        <button type="submit" class="btn-dark">Submit</button>
+        <button type="button" id="closeButton">Close</button>
+      </form>
+    </dialog>
+    <div class="book-grid"></div>
+  </body>
+</html>
