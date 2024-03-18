@@ -1,5 +1,6 @@
 export const convertToPolar = (index) => {
-  return new  Polar(index % 8, parseInt(index / 8));
+
+  return new Polar(parseInt(index) % 8, parseInt(parseInt(index) / 8));
 }
 
 export const convertToIndex = (polar) => {
@@ -7,33 +8,38 @@ export const convertToIndex = (polar) => {
 }
 
 export class Polar {
-  constructor(x , y ){
-    this.x = x ;
-    this.y = y ;
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+  input() {
+
+    const x = prompt("x=");
+    this.x = x;
+    const y = prompt("y=");
+    this.y = y;
   }
 }
 export const getAdjacencyList = (polar) => {
-  // Return list of valid adjacecy position for knight to move
-  let moveWeights = [1, 2, -1, -2];
-  let moveVectors = [];
-  for (let left = 0; left < 4; left++) {
-    for (let right = 0; right < 4; right++) {
-      moveVectors.push(new Polar(moveWeights[left], moveWeights[right]));
-    }
-  }
-  moveVectors = moveVectors.filter(move => {
-    return Math.abs(move.x) + Math.abs(move.y) == 3
-  })
 
   let moveList = [];
 
+  let moveVectors = [
+    { x: 1, y: 2 },
+    { x: 1, y: -2 },
+    { x: 2, y: 1 },
+    { x: 2, y: -1 },
+    { x: -1, y: 2 },
+    { x: -1, y: -2 },
+    { x: -2, y: 1 },
+    { x: -2, y: -1 }
+  ]
   moveVectors.forEach(moveVector => {
-    let move = new  Polar(moveVector.x + polar.x, moveVector.y + polar.y);
+    let move = new Polar(moveVector.x + polar.x, moveVector.y + polar.y);
     if (isInBound(move)) {
-      moveList.push(move);
+      moveList.push(convertToIndex(move));
     }
   })
-
   return moveList;
 
 }
@@ -42,3 +48,15 @@ export const getAdjacencyList = (polar) => {
 export const isInBound = (polar) => {
   return polar.x >= 0 && polar.x <= 7 && polar.y >= 0 && polar.y <= 7;
 }
+
+
+export const mapPathPolar = (route) => {
+  return route.map((value) => convertToPolar(value));
+}
+export const mapPathList = (route) => {
+  // TODO
+  // Convert path
+}
+
+
+
